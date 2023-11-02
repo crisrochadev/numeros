@@ -1,14 +1,31 @@
 const keyword = document.getElementById("keyword");
 const grid = document.getElementById("grid");
-let qtdKeys = 4;
+let qtdKeys = 6;
 let round = 1;
 let currentInput = null;
 let selectedes = [];
-let numbers = [2, 5, 9, 1];
-let inputs=[]
+let numbers = [2, 5, 9, 1, 3, 8];
+let inputs = [];
 let elements = document.querySelectorAll(".num");
 
 const confirm = document.getElementById("confirm");
+
+function backspace() {
+  currentInput.textContent = "";
+  let selEl = selectedes.findIndex((sel) => sel.key == currentInput.id);
+  if (!confirm.disabled) {
+    confirm.setAttribute("disabled", true);
+  }
+  selectedes.splice(selEl, 1);
+  if (
+    currentInput.previousElementSibling &&
+    !currentInput.previousElementSibling.id.startsWith("disabled")
+  ) {
+    currentInput.previousElementSibling.focus();
+  } else {
+    currentInput.focus();
+  }
+}
 //Adiciona os numeros no grid
 function check() {
   let allCheck = [];
@@ -28,19 +45,16 @@ function check() {
   if (allCheck.legth === numbers.length) {
     alert("Venceu");
   } else {
-    mountGame();
     Array.from(inputs).forEach((item, index) => {
       item.id = "disabled_" + (index + round);
       item.setAttribute("disabled", true);
     });
-    elements = [];
-    round++;
     selectedes = [];
-    
+    mountGame();
   }
 }
 function addNumber(element, num) {
-  if (currentInput) {
+  if (currentInput && !selectedes.some((x) => x.num === num)) {
     currentInput.textContent = num;
     if (!selectedes.some((x) => x.key === currentInput.id)) {
       selectedes.push({
@@ -51,6 +65,7 @@ function addNumber(element, num) {
       const index = selectedes.findIndex((x) => x.key === currentInput.id);
       selectedes[index].num = num;
     }
+
     if (currentInput.nextElementSibling) {
       currentInput.nextElementSibling.focus();
     }
@@ -60,13 +75,13 @@ function addNumber(element, num) {
     } else {
       confirm.setAttribute("disabled", true);
     }
-    if(inputs.some(in => currentInput)){
-       let index = inputs.findIndex(in => currentInput)
+    if (inputs.some((i) => i == currentInput)) {
+      let index = inputs.findIndex((i) => i == currentInput);
       inputs[index] = currentInput;
     } else {
-       inputs.push(currentInput)
+      inputs.push(currentInput);
     }
-    
+
     Array.from(elements).forEach((el) => {
       if (selectedes.some((sel) => sel.num == el.textContent)) {
         el.classList.add("selected");
@@ -87,7 +102,7 @@ function mountGame() {
     input.classList.add("input");
     input.type = "text";
     input.inputMode = "number";
-    input.removeAttribute('disabled')
+    input.removeAttribute("disabled");
     input.addEventListener("focus", (e) => {
       currentInput = e.target;
     });
@@ -99,7 +114,7 @@ function mountGame() {
 
     grid.appendChild(input);
     if (num == 1) {
-      input.focus()
+      input.focus();
     }
   }
 }
