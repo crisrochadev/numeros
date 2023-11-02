@@ -7,6 +7,9 @@ let currentInput = null;
 function addNumber(num) {
   if (currentInput) {
     currentInput.textContent = num;
+    if(currentInput.nextElementSibling){
+      currentInput.nextElementSibling.focus()
+    }
   }
 }
 
