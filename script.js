@@ -5,6 +5,7 @@ let round = 1;
 let currentInput = null;
 let selectedes = [];
 let numbers = [2, 5, 9, 1];
+let inputs=[]
 let elements = document.querySelectorAll(".num");
 
 const confirm = document.getElementById("confirm");
@@ -28,7 +29,7 @@ function check() {
     alert("Venceu");
   } else {
     mountGame();
-    Array.from(elements).forEach((item, index) => {
+    Array.from(inputs).forEach((item, index) => {
       item.id = "disabled_" + (index + round);
       item.setAttribute("disabled", true);
     });
@@ -59,6 +60,13 @@ function addNumber(element, num) {
     } else {
       confirm.setAttribute("disabled", true);
     }
+    if(inputs.some(in => currentInput)){
+       let index = inputs.findIndex(in => currentInput)
+      inputs[index] = currentInput;
+    } else {
+       inputs.push(currentInput)
+    }
+    
     Array.from(elements).forEach((el) => {
       if (selectedes.some((sel) => sel.num == el.textContent)) {
         el.classList.add("selected");
