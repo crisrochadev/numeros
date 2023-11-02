@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+* {
+  font-family: "Open Sans", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #1d1d26;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  gap: 10px;
+}
+.grid {
+  width: 90%;
+  max-width: 400px;
+  height: 70%;
+  background-color: #2b2b35;
+  border-radius: 5px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  display: grid;
+  
+  gap:5px;
+  padding: 5px;
+  position: relative;
+}
+
+.grid .input {
+  width: 100%;
+  height:100%;
+  background-color:  #cc58c6;
+  border-radius:5px;
+  box-shadow:  0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5em;
+  font-weight: 900;
+  color:white;
+}
+.grid .input:focus {
+  background-color: #ff3071;
+}
+.keyword {
+  width: 90%;
+  max-width: 400px;
+  height: 30%;
+  background-color: #2b2b35;
+  border-radius: 5px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  display: flex;
+}
+.keyword .box-number {
+  width: 80%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 5px;
+  padding: 5px;
+}
+.keyword .box-number #key_0 {
+  grid-column: 1/4;
+}
+.btns .key,
+.keyword .box-number .key {
+  background-color: #1f7ae6;
+  border-radius: 5px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border: none;
+  cursor: pointer;
+  font-size: 2em;
+  color: white;
+  font-weight: 900;
+  transition: all 0.3s ease-in-out;
+}
+.keyword .box-number .key:hover {
+  background-color: #1554a1;
+}
+.keyword .box-number .key:focus {
+  background-color: #1554a1;
+  box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.25),
+    inset 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.keyword .box-number .key.done {
+  background-color: #11d358;
+}
+.keyword .box-number .key.ok {
+  background-color: #cbcb41;
+}
+.btns {
+  width: 20%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 5px;
+  padding: 5px 0;
+}
