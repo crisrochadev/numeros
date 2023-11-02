@@ -8,6 +8,24 @@ let numbers = [2,5,9,1,0];
 
 const confirm = document.getElementById("confirm")
 //Adiciona os numeros no grid
+function(){
+  let allCheck = []
+   selectedes.forEach((item,index) => {
+     if(numbers[index] == item.num){
+        document.getElementById(item.key).style.color = "blue"
+        document.getElementById('key_'+item.key).style.color = "blue"
+       allCheck.push(item.num)
+     }else {
+         if(numbers.some(num => num == item.num)){
+             document.getElementById(item.key).style.color = "blue"
+             document.getElementById('key_'+item.key).style.color = "green"
+         }
+     }
+   })
+  if(allCheck.legth === numbers.length){
+     alert("Venceu")
+  }
+}
 function addNumber(num) {
   if (currentInput) {
     currentInput.textContent = num;
