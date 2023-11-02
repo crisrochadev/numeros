@@ -5,7 +5,7 @@
   margin: 0;
   box-sizing: border-box;
 }
-body{
+body {
   background-color: #1d1d26;
   width: 100vw;
   height: 100vh;
@@ -20,53 +20,38 @@ body{
 .grid {
   width: 90%;
   max-width: 400px;
-  height: calc(70% - 50px);
+  height: 70%;
   background-color: #2b2b35;
   border-radius: 5px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   display: grid;
-  
-  gap:5px;
+
+  gap: 5px;
   padding: 5px;
   position: relative;
 }
 
 .grid .input {
   width: 100%;
-  height:100%;
-  background-color:  #cc58c6;
-  border-radius:5px;
-  box-shadow:  0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  height: 100%;
+  background-color: #cc58c6;
+  border-radius: 5px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 2.5em;
   font-weight: 900;
-  color:white;
+  color: white;
 }
 .grid .input:focus {
   background-color: #ff3071;
 }
-button#confirm{
-  background:#ff3071;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-weight:800;
-  font-size:1.8em;
-  padding:10px 20px;
-  border-radius: 5px;
-  border:none;
-  width:calc(100% - 10px);
-  height:50px;
-  visibility:hidden;
-  color:white;
-  box-shadow: 0 4px 4px rgba(0,0,0,.25);
+.confirm {
+  background: #ff3071 !important;
 }
-button.show{
-  visibility:visible !important;
-}
+
 .keyword {
   width: 90%;
   max-width: 400px;
@@ -100,19 +85,39 @@ button.show{
   font-weight: 900;
   transition: all 0.3s ease-in-out;
 }
+.btns .key:hover,
 .keyword .box-number .key:hover {
   background-color: #1554a1;
 }
+.confirm:hover {
+  background-color: #a80fa1 !important;
+}
+.confirm:disabled{
+  background-color: #ddd !important;
+  cursor:none;
+}
+.confirm:focus,
 .keyword .box-number .key:focus {
   background-color: #1554a1;
   box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.25),
     inset 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 .keyword .box-number .key.done {
-  background-color: #11d358;
+  background-color: #11d358 !important
+  ;
 }
 .keyword .box-number .key.ok {
-  background-color: #cbcb41;
+  background-color: #cbcb41 !important;
+}
+.input.done {
+  background-color: #11d358 !important
+  ;
+}
+.input.ok {
+  background-color: #cbcb41 !important;
+}
+.selected{
+  background-color: #ddd !important;
 }
 .btns {
   width: 20%;
