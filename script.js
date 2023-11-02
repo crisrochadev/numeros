@@ -8,17 +8,17 @@ let numbers = [2,5,9,1,0];
 
 const confirm = document.getElementById("confirm")
 //Adiciona os numeros no grid
-function(){
+function check(){
   let allCheck = []
    selectedes.forEach((item,index) => {
      if(numbers[index] == item.num){
         document.getElementById(item.key).style.color = "blue"
-        document.getElementById('key_'+item.key).style.color = "blue"
+        document.getElementById('key_'+item.num).style.color = "blue"
        allCheck.push(item.num)
      }else {
          if(numbers.some(num => num == item.num)){
              document.getElementById(item.key).style.color = "blue"
-             document.getElementById('key_'+item.key).style.color = "green"
+             document.getElementById('key_'+item.num).style.color = "green"
          }
      }
    })
