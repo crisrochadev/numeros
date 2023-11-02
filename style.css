@@ -5,7 +5,7 @@
   margin: 0;
   box-sizing: border-box;
 }
-.container{
+body{
   background-color: #1d1d26;
   width: 100vw;
   height: 100vh;
