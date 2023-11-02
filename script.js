@@ -3,10 +3,20 @@ const grid = document.getElementById("grid");
 let round = 0;
 let qtdKeys = 4;
 let currentInput = null;
+let selectedes=[]
 //Adiciona os numeros no grid
 function addNumber(num) {
   if (currentInput) {
     currentInput.textContent = num;
+    if(!selectedes.some(x => x.key === currentInput.id)){
+       selectedes.push({
+         key:currentInput.id,
+         num
+       }
+    }else{
+      const index = selectedes.findIndex(x => x.key === currentInput.id)
+      selectedes[inde.num = num
+    }
     if(currentInput.nextElementSibling){
       currentInput.nextElementSibling.focus()
     }
