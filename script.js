@@ -4,6 +4,9 @@ let round = 0;
 let qtdKeys = 4;
 let currentInput = null;
 let selectedes=[]
+let numbers = [2,5,9,1,0];
+
+const confirm = document.getElementById("confirm")
 //Adiciona os numeros no grid
 function addNumber(num) {
   if (currentInput) {
@@ -20,6 +23,13 @@ function addNumber(num) {
     if(currentInput.nextElementSibling){
       currentInput.nextElementSibling.focus()
     }
+       
+    if(selectedes.length === numbers.length){
+      confirm.classList.add("show")
+    }else {
+      confirm.classList.remove("show")
+    }
+    
   }
 }
 
