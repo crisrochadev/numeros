@@ -28,6 +28,14 @@ function backspace() {
 }
 //Adiciona os numeros no grid
 function check() {
+  const grids = document.querySelectorAll(".input")
+  if(Array.from(grids).length === (qtdKeys*qtdKeys)){
+     Array.from(grids).forEach((inp,index) => {
+         if(index <= qtdKeys){
+            grid.removeChild(inp)
+         }
+     })
+  }
   let allCheck = [];
   selectedes.forEach((item, index) => {
     if (numbers[index] == item.num) {
