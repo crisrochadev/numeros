@@ -31,7 +31,7 @@ function check() {
   const grids = document.querySelectorAll(".input")
   if(Array.from(grids).length === (qtdKeys*qtdKeys)){
      Array.from(grids).forEach((inp,index) => {
-         if(index <= qtdKeys){
+         if(index < qtdKeys){
             grid.removeChild(inp)
          }
      })
