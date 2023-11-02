@@ -59,6 +59,7 @@ button#confirm{
   border-radius: 5px;
   border:none;
   width:100%;
+  color:white;
   box-shadow: 0 4px 4px rgba(0,0,0,.25);
 }
 .keyword {
