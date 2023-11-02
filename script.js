@@ -68,6 +68,10 @@ function mountGame() {
     });
     input.tabIndex = num;
 
+    if(num == 1){
+       input.focus()
+    }
+
     grid.appendChild(input);
   }
 }
