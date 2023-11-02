@@ -48,6 +48,21 @@ body {
 .grid .input:focus {
   background-color: #ff3071;
 }
+#confirm{
+  background:#ff3071;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-weight:800;
+  font-size:1.8em;
+  padding:10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 4px rgba(0,0,0,.25);
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
 .keyword {
   width: 90%;
   max-width: 400px;
