@@ -5,6 +5,7 @@ let round = 1;
 let currentInput = null;
 let selectedes = [];
 let numbers = [2, 5, 9, 1, 3, 8];
+let digit = new Audio('./src_assets_sound_carrinho.wav');
 let inputs = [];
 let elements = document.querySelectorAll(".num");
 
@@ -63,6 +64,7 @@ function check() {
   }
 }
 function addNumber(element, num) {
+  digit.play()
   if (currentInput && !selectedes.some((x) => x.num === num)) {
     currentInput.textContent = num;
     if (!selectedes.some((x) => x.key === currentInput.id)) {
