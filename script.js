@@ -53,6 +53,7 @@ function check() {
     Array.from(elements).forEach((el) => el.classList.remove("selected"));
   });
   alert(JSON.stringify(allCheck))
+  alert(JSON.stringify(selectedes))
   if (allCheck.legth === numbers.length) {
     alert("Venceu");
   } else {
