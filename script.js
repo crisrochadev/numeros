@@ -52,8 +52,8 @@ function check() {
     }
     Array.from(elements).forEach((el) => el.classList.remove("selected"));
   });
-  alert(JSON.stringify(allCheck))
-  alert(JSON.stringify(selectedes))
+  //alert(JSON.stringify(allCheck))
+ // alert(JSON.stringify(selectedes))
   if (allCheck.length === numbers.length) {
     alert("Venceu");
     grid.innerHTML = ""
