@@ -54,8 +54,11 @@ function check() {
   });
   alert(JSON.stringify(allCheck))
   alert(JSON.stringify(selectedes))
-  if (allCheck.legth === numbers.length) {
+  if (allCheck.length === numbers.length) {
     alert("Venceu");
+    grid.innerHTML = ""
+    selectedes = [];
+    mountGame();
   } else {
     Array.from(inputs).forEach((item, index) => {
       item.id = "disabled_" + (index + round);
