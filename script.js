@@ -151,7 +151,7 @@ function mountGame() {
   }
 }
 function init(){
-  numeros = gerarNumerosAleatorios();
+  numbers = gerarNumerosAleatorios();
   mountGame();
 }
 window.onload = init();
