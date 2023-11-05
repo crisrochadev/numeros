@@ -89,7 +89,7 @@ function addNumber(element, num) {
         num,
       }
     }
-
+alert(selectedes)
     if (currentInput.nextElementSibling) {
       currentInput.nextElementSibling.focus();
     }
@@ -152,6 +152,7 @@ function mountGame() {
 }
 function init(){
   numbers = gerarNumerosAleatorios();
+  alert(numbers)
   mountGame();
 }
 window.onload = init();
