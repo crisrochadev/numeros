@@ -52,8 +52,8 @@ function check() {
     }
     Array.from(elements).forEach((el) => el.classList.remove("selected"));
   });
-  alert(JSON.stringify(allCheck))
-  alert(JSON.stringify(selectedes))
+  //alert(JSON.stringify(allCheck))
+  //alert(JSON.stringify(selectedes))
   if (allCheck.legth === numbers.length) {
     alert("Venceu");
   } else {
@@ -66,7 +66,7 @@ function check() {
   }
 }
 function addNumber(element, num) {
-  digit.play()
+  
   if (currentInput && !selectedes.some((x) => x.num === num)) {
     currentInput.textContent = num;
     if (!selectedes.some((x) => x.key === currentInput.id)) {
@@ -76,7 +76,10 @@ function addNumber(element, num) {
       });
     } else {
       const index = selectedes.findIndex((x) => x.key === currentInput.id);
-      selectedes[index].num = num;
+      selectedes[index]= {
+        key: currentInput.id,
+        num,
+      }
     }
 
     if (currentInput.nextElementSibling) {
