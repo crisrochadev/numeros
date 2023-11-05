@@ -4,7 +4,7 @@ let qtdKeys = 6;
 let round = 1;
 let currentInput = null;
 let selectedes = [];
-let numbers = [2, 5, 9, 1, 3, 8];
+let numbers = [];
 let digit = new Audio('./src_assets_sound_carrinho.wav');
 let inputs = [];
 let elements = document.querySelectorAll(".num");
@@ -30,14 +30,7 @@ function backspace() {
 //Adiciona os numeros no grid
 function check() {
   const grids = document.querySelectorAll(".input")
-  
-  if(Array.from(grids).length === (qtdKeys*qtdKeys)){
-     Array.from(grids).forEach((inp,index) => {
-         if(index < qtdKeys){
-            grid.removeChild(inp)
-         }
-     })
-  }
+ 
   let allCheck = [];
   selectedes.forEach((item, index) => {
     if (numbers[index] == item.num) {
@@ -58,8 +51,20 @@ function check() {
     alert("Venceu");
     grid.innerHTML = ""
     selectedes = [];
-    mountGame();
+    init();
   } else {
+     
+  if(Array.from(grids).length === (qtdKeys*qtdKeys)){
+    // Array.from(grids).forEach((inp,index) => {
+       //  if(index < qtdKeys){
+        //grid.removeChild(inp)
+       //  }
+   //  })
+    alert("Você perdeu");
+    init();
+    return;
+    
+  }
     Array.from(inputs).forEach((item, index) => {
       item.id = "disabled_" + (index + round);
       item.setAttribute("disabled", true);
@@ -110,8 +115,16 @@ function addNumber(element, num) {
     });
   }
 }
-
+function gerarNumerosAleatorios() {
+  const numeros = [];
+  for (let i = 0; i < 6; i++) {
+    const numeroAleatorio = Math.floor(Math.random() * 10);
+    numeros.push(numeroAleatorio);
+  }
+   return numeros;
+}
 function mountGame() {
+  
   grid.style.gridTemplateColumns = `repeat(${qtdKeys},1fr)`;
   grid.style.gridTemplateRows = `repeat(${qtdKeys},1fr)`;
   for (let num = 1; num <= qtdKeys * round; num++) {
@@ -137,5 +150,8 @@ function mountGame() {
     }
   }
 }
-
-window.onload = mountGame();
+function init(){
+  numeros = gerarNumerosAleatorios();
+  mountGame();
+}
+window.onload = init();
